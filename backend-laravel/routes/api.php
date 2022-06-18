@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\User\UserController;
 
 // url form: http://127.0.0.1:8000/api/v1/auth/...
 Route::group(["prefix" => "v1"], function () {
@@ -31,4 +32,13 @@ Route::group(["prefix" => "v1"], function () {
     // Route for unauthorized access
     Route::get('/not_found', [AdminController::class, 'notFound'])->name("not-found");
 
+
+    // url form: http://127.0.0.1:8000/api/v1/..
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/get_surveys/{id?}', 'getSurveys');
+        Route::post('/add_answer', 'addAnswer');
+    });
+
+
 });
+
