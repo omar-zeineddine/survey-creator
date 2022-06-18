@@ -23,6 +23,7 @@ Route::group(["prefix" => "v1"], function () {
                 Route::post('/add_survey', 'addSurvey');
                 Route::post('/add_question', 'addQuestion');
                 Route::post('/add_option', 'addOption');
+                Route::get('/get_types', 'getTypes');
             });
         });    
     });

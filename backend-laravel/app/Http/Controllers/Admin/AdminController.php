@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Survey;
 use App\Models\Question;
 use App\Models\Option;
+use App\Models\Type;
 
 class AdminController extends Controller{
 
@@ -43,6 +44,16 @@ class AdminController extends Controller{
         return response()->json([
             "status" => "Success"
         ], 200);
+    }
+
+    public function getTypes(){
+        $type = Type::all();
+
+        return response()->json([
+            "status" => "Success",
+            "types" => $type
+        ], 200);
+
     }
 
 }
