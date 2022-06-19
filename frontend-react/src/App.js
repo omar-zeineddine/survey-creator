@@ -8,6 +8,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route
+          path="/"
+          element={
+            <>
+              <Login />
+            </>
+          }
+        ></Route>
+        <Route
           path="/signup"
           element={
             <>
@@ -16,15 +24,6 @@ function App() {
           }
         ></Route>
       </Routes>
-
-      <Route
-        path="/login"
-        element={
-          <>
-            <Login />
-          </>
-        }
-      ></Route>
     </BrowserRouter>
   );
 }
