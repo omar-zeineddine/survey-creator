@@ -60,7 +60,7 @@ const Login = () => {
               .then(function (response) {
                 const token = response.data.access_token;
                 localStorage.setItem("token", token);
-                Navigation("/signup"); // test nav after successful login
+                Navigation("/example"); // test nav after successful login
               })
               .catch(function (e) {
                 const data = e.response.data;
