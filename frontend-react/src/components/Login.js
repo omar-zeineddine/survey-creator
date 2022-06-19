@@ -1,19 +1,45 @@
-import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function LoginForm() {
+import "../App.css";
+import Nav from "./Nav";
+
+const Login = () => {
   return (
-    <div className="container">
-      <form className="myform">
-        <h5>Log In</h5>
-
-        <label>Name:</label>
-        <input placeholder="Enter Name" />
-        <label>Password:</label>
-        <input placeholder="Enter Password" />
-        <button className="btn">Login</button>
+    <div>
+      <Nav />
+      <form action="javascript:void(0);" class="container login-form">
+        <h1>Login</h1>
+        <div class="form-input-material">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder=" "
+            autocomplete="off"
+            required
+            class="form-control-material"
+          />
+          <label for="username">Username</label>
+        </div>
+        <div class="form-input-material">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder=" "
+            autocomplete="off"
+            required
+            class="form-control-material"
+          />
+          <label for="password">Password</label>
+        </div>
+        <button type="submit" class="btn btn-ghost">
+          Login
+        </button>
       </form>
     </div>
   );
-}
+};
 
-export default LoginForm;
+export default Login;
