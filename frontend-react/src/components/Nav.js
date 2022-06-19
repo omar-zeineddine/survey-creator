@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Nav() {
-  const [openForm, setSignup] = useState(false);
-
+  const Navigate = useNavigate();
   return (
     <header>
       <div className="container row">
@@ -34,15 +34,17 @@ function Nav() {
                 href="#"
                 className="nav__link"
                 id="username"
-                onClick={() => {
-                  setSignup(!openForm);
-                }}
+                onClick={() => Navigate("/signup")}
               >
                 Register
               </a>
             </li>
             <li className="nav__item">
-              <a href="#" className="btn nav__link nav__link--button">
+              <a
+                href="#"
+                className="btn nav__link nav__link--button"
+                onClick={() => Navigate("/")}
+              >
                 Login
               </a>
             </li>
