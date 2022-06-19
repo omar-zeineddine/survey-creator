@@ -1,10 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 import "../App.css";
 import Nav from "./Nav";
 
-const Login = () => {
+const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const Navigation = useNavigate();
   return (
     <div>
       <Nav />
@@ -19,6 +25,7 @@ const Login = () => {
             autocomplete="off"
             required
             class="form-control-material"
+            onChange={(e) => setName(e.target.value)}
           />
           <label for="email">Name</label>
         </div>
@@ -31,6 +38,7 @@ const Login = () => {
             autocomplete="off"
             required
             class="form-control-material"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <label for="email">Email</label>
         </div>
@@ -43,6 +51,7 @@ const Login = () => {
             autocomplete="off"
             required
             class="form-control-material"
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label for="password">Password</label>
         </div>
@@ -54,10 +63,45 @@ const Login = () => {
             autocomplete="off"
             required
             class="form-control-material"
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <label for="password">Confirm Password</label>
         </div>
-        <button type="submit" class="btn btn-ghost">
+        <button
+          type="submit"
+          class="btn btn-ghost"
+          onClick={function onSubmit(e) {
+            e.preventDefault();
+
+            let data = new FormData();
+
+            data.append("name", name);
+            data.append("email", email);
+            data.append("password", password);
+            data.append("password_confirmation", confirmPassword);
+
+            axios({
+              method: "post",
+              url: "http://127.0.0.1:8000/api/v1/auth/register",
+              data: data,
+            })
+              .then(function (response) {
+                const token = response.data.access_token;
+                localStorage.setItem("token", token);
+                Navigation("/example"); // test nav after successful login
+              })
+              .catch(function (e) {
+                const data = e.response.data;
+                let msg = "";
+
+                //  Iterate through the object keys and values
+                for (const key in data) {
+                  msg += `${key}: ${data[key]}\n`;
+                }
+                console.log(msg);
+              });
+          }}
+        >
           Signup
         </button>
       </form>
@@ -65,4 +109,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

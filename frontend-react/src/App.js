@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Example from "./components/Example";
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
           element={
             <>
               <Signup />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/example"
+          element={
+            <>
+              <Example />
             </>
           }
         ></Route>
