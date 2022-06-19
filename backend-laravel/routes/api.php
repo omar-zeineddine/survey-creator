@@ -36,6 +36,7 @@ Route::group(["prefix" => "v1"], function () {
     // url form: http://127.0.0.1:8000/api/v1/..
     Route::controller(UserController::class)->group(function () {
         Route::get('/get_surveys/{id?}', 'getSurveys');
+        Route::get('/get_questions/{id?}', 'getQuestions');
         Route::post('/add_answer', 'addAnswer');
     });
 
