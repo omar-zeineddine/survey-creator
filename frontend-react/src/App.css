@@ -266,3 +266,14 @@ header {
   display: flex;
   padding: 1em 2em;
 }
+
+.survey-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  width: 450px;
+  border-radius: 10px;
+  min-height: 60vh;
+  background-color: steelblue;
+}

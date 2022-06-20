@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Admin from "./components/Admin";
 import Example from "./components/Example";
+import Survey from "./components/Surveys";
 
 function App() {
   return (
@@ -33,6 +34,16 @@ function App() {
             </>
           }
         ></Route>
+
+        <Route
+          path="/survey"
+          element={
+            <>
+              <Survey />
+            </>
+          }
+        ></Route>
+
         <Route
           path="/admin"
           element={
