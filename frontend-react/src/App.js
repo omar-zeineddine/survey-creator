@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Admin from "./components/Admin";
 import Example from "./components/Example";
 
 function App() {
@@ -29,6 +30,14 @@ function App() {
           element={
             <>
               <Example />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/admin"
+          element={
+            <>
+              <Admin />
             </>
           }
         ></Route>

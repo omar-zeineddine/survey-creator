@@ -258,3 +258,11 @@ header {
 .btn-ghost:hover::before {
   transform: translateX(100%);
 }
+
+.admin-btn {
+  margin: 0 auto;
+  display: inline-block;
+  margin-top: 5em;
+  display: flex;
+  padding: 1em 2em;
+}

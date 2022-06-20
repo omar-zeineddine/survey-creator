@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ import Nav from "./Nav";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const Navigation = useNavigate();
+  const Navigate = useNavigate();
   return (
     <div>
       <Nav />
@@ -60,7 +60,7 @@ const Login = () => {
               .then(function (response) {
                 const token = response.data.access_token;
                 localStorage.setItem("token", token);
-                Navigation("/example"); // test nav after successful login
+                Navigate("/example"); // test nav after successful login
               })
               .catch(function (e) {
                 const data = e.response.data;
